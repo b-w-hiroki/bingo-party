@@ -10,6 +10,7 @@
     <title>ビンゴパーティ - 日常が遊びに変わる</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon-192.png">
 </head>
 <body>
 
@@ -406,7 +407,8 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
-                if (href === '#') return;
+                // ページ内リンク（#xxx）のみスムーズスクロール対象にする
+                if (!href || !href.startsWith('#') || href === '#') return;
                 e.preventDefault();
                 const target = document.querySelector(href);
                 if (target) {
@@ -438,6 +440,17 @@
                 if (logo) logo.setAttribute('href', './');
             } catch (e) {}
         })();
+    </script>
+
+    <!-- Service Worker登録 -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./service-worker.js')
+                    .then(reg => console.log('✅ Service Worker登録成功:', reg.scope))
+                    .catch(err => console.log('❌ Service Worker登録失敗:', err));
+            });
+        }
     </script>
 
 </body>
