@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="日常が遊びに変わる。いろんなビンゴで冒険しよう。ビンゴパーティはシーン別ビンゴゲームのプラットフォームです。">
+    <meta name="theme-color" content="#5B6ABF">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>ビンゴパーティ - 日常が遊びに変わる</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+    <!-- ========== ヘッダー ========== -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🎯</span>
+                <span class="logo-text">BINGO PARTY</span>
+            </a>
+            <nav class="header-nav">
+                <a href="#games">ゲーム一覧</a>
+                <a href="#concept">コンセプト</a>
+                <a href="#collaborate">コラボ募集</a>
+            </nav>
+            <button class="menu-toggle" aria-label="メニューを開く" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <!-- モバイルメニュー -->
+        <div class="mobile-menu" id="mobileMenu">
+            <nav class="mobile-nav">
+                <a href="#games">ゲーム一覧</a>
+                <a href="#concept">コンセプト</a>
+                <a href="#collaborate">コラボ募集</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ========== ヒーローセクション ========== -->
+    <section class="hero">
+        <div class="hero-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+        </div>
+        <div class="hero-content">
+            <p class="hero-label">🎲 ビンゴゲームプラットフォーム</p>
+            <h1 class="hero-title">
+                <span class="hero-title-main">BINGO PARTY</span>
+                <span class="hero-title-jp">ビンゴパーティ</span>
+            </h1>
+            <p class="hero-subtitle">日常が遊びに変わる。<br>ビンゴで冒険しよう。</p>
+            <div class="hero-actions">
+                <a href="#games" class="btn btn-primary btn-lg">ゲームを見る</a>
+                <a href="#concept" class="btn btn-outline btn-lg">詳しく知る</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">ゲーム</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">2</span>
+                    <span class="stat-label">公開中</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">冒険</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-hint">
+            <span>スクロール</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- ========== ゲーム一覧セクション ========== -->
+    <section class="games-section" id="games">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">GAMES</span>
+                <h2 class="section-title">ゲーム一覧</h2>
+                <p class="section-desc">あなたにぴったりのビンゴを見つけよう</p>
+            </div>
+
+            <div class="games-grid">
+
+                <!-- お散歩ビンゴ -->
+                <article class="game-card" style="--card-color: #7eb89a;">
+                    <div class="card-accent"></div>
+                    <div class="card-header">
+                        <span class="card-emoji">🚶</span>
+                        <span class="card-badge badge-live">公開中</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">お散歩ビンゴ</h3>
+                        <p class="card-desc">いつもの散歩がワクワクする冒険に。街中の発見をビンゴで楽しもう。</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-card" style="--btn-color: #7eb89a;">遊ぶ</a>
+                    </div>
+                </article>
+
+                <!-- 呑み助ビンゴ -->
+                <article class="game-card" style="--card-color: #d4a574;">
+                    <div class="card-accent"></div>
+                    <div class="card-header">
+                        <span class="card-emoji">🍺</span>
+                        <span class="card-badge badge-live">公開中</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">呑み助ビンゴ</h3>
+                        <p class="card-desc">飲み歩きがもっと楽しくなる。居酒屋巡りをゲーム感覚で楽しもう。</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-card" style="--btn-color: #d4a574;">遊ぶ</a>
+                    </div>
+                </article>
+
+                <!-- 旅ビンゴ -->
+                <article class="game-card" style="--card-color: #6BB5E0;">
+                    <div class="card-accent"></div>
+                    <div class="card-header">
+                        <span class="card-emoji">✈️</span>
+                        <span class="card-badge badge-soon">Coming Soon</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">旅ビンゴ</h3>
+                        <p class="card-desc">旅先での発見をビンゴに。観光がもっと思い出深い体験になる。</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="btn btn-card btn-disabled">準備中</span>
+                    </div>
+                </article>
+
+                <!-- グルメビンゴ -->
+                <article class="game-card" style="--card-color: #E07B6B;">
+                    <div class="card-accent"></div>
+                    <div class="card-header">
+                        <span class="card-emoji">🍽️</span>
+                        <span class="card-badge badge-soon">Coming Soon</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">グルメビンゴ</h3>
+                        <p class="card-desc">食べ歩きをもっと楽しく。あなたの街のグルメをコンプリートしよう。</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="btn btn-card btn-disabled">準備中</span>
+                    </div>
+                </article>
+
+                <!-- カフェビンゴ -->
+                <article class="game-card" style="--card-color: #8B6B4A;">
+                    <div class="card-accent"></div>
+                    <div class="card-header">
+                        <span class="card-emoji">☕</span>
+                        <span class="card-badge badge-soon">Coming Soon</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">カフェビンゴ</h3>
+                        <p class="card-desc">カフェ巡りをゲームに。お気に入りの一杯を見つける旅に出よう。</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="btn btn-card btn-disabled">準備中</span>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== コンセプトセクション ========== -->
+    <section class="concept-section" id="concept">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">CONCEPT</span>
+                <h2 class="section-title">ビンゴパーティとは？</h2>
+                <p class="section-desc">
+                    毎日の行動をちょっとした「ゲーム」に変える。<br>
+                    ビンゴパーティは、さまざまなシーンに合わせたビンゴゲームを<br class="pc-only">
+                    ひとつのプラットフォームで楽しめるサービスです。
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <rect x="4" y="8" width="32" height="24" rx="4" stroke="currentColor" stroke-width="2.5"/>
+                            <rect x="12" y="2" width="16" height="36" rx="3" stroke="currentColor" stroke-width="2" stroke-dasharray="4 3"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">どこでも遊べる</h3>
+                    <p class="feature-desc">
+                        アプリのインストールは不要。ブラウザだけで、
+                        スマホでもPCでもすぐに遊べます。
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <circle cx="14" cy="16" r="6" stroke="currentColor" stroke-width="2.5"/>
+                            <circle cx="26" cy="16" r="6" stroke="currentColor" stroke-width="2.5"/>
+                            <path d="M8 32c0-5 4-9 6-9s4 1 6 1 4-1 6-1 6 4 6 9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">みんなで楽しめる</h3>
+                    <p class="feature-desc">
+                        合言葉を共有するだけで、友だちや家族と
+                        同じビンゴカードで対戦できます。
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <rect x="4" y="4" width="14" height="14" rx="3" stroke="currentColor" stroke-width="2.5"/>
+                            <rect x="22" y="4" width="14" height="14" rx="3" stroke="currentColor" stroke-width="2.5"/>
+                            <rect x="4" y="22" width="14" height="14" rx="3" stroke="currentColor" stroke-width="2.5"/>
+                            <rect x="22" y="22" width="14" height="14" rx="3" stroke="currentColor" stroke-width="2.5"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">いろんなテーマ</h3>
+                    <p class="feature-desc">
+                        散歩、グルメ、旅行…シーン別にデザインされた
+                        ビンゴゲームが続々登場します。
+                    </p>
+                </div>
+            </div>
+
+            <div class="concept-visual">
+                <div class="concept-flow">
+                    <div class="flow-step">
+                        <div class="flow-number">1</div>
+                        <div class="flow-text">テーマを選ぶ</div>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">
+                        <div class="flow-number">2</div>
+                        <div class="flow-text">ビンゴカードを作る</div>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">
+                        <div class="flow-number">3</div>
+                        <div class="flow-text">日常で達成する</div>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">
+                        <div class="flow-number">4</div>
+                        <div class="flow-text">ビンゴ！🎉</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 企画・コラボ募集セクション ========== -->
+    <section class="collaborate-section" id="collaborate">
+        <div class="container">
+            <div class="collab-content">
+                <div class="section-header section-header--left">
+                    <span class="section-label">COLLABORATE</span>
+                    <h2 class="section-title">あなたのビンゴを<br>作りませんか？</h2>
+                    <p class="section-desc">
+                        ビンゴパーティでは、オリジナルビンゴのアイデアを募集しています。
+                        あなたの趣味や地域に合わせたビンゴを一緒に作りましょう。
+                    </p>
+                </div>
+
+                <div class="collab-cards">
+                    <div class="collab-card">
+                        <div class="collab-card-icon">💡</div>
+                        <h4 class="collab-card-title">アイデア募集</h4>
+                        <p class="collab-card-desc">
+                            「こんなビンゴがあったら面白い！」というアイデアをお寄せください。
+                            採用されたアイデアは、あなたのクレジット付きで公開されます。
+                        </p>
+                    </div>
+                    <div class="collab-card">
+                        <div class="collab-card-icon">🤝</div>
+                        <h4 class="collab-card-title">企業タイアップ</h4>
+                        <p class="collab-card-desc">
+                            地域イベント、観光促進、店舗集客など、ビンゴを活用した
+                            プロモーションのご相談を承ります。
+                        </p>
+                    </div>
+                    <div class="collab-card">
+                        <div class="collab-card-icon">🎨</div>
+                        <h4 class="collab-card-title">クリエイター募集</h4>
+                        <p class="collab-card-desc">
+                            イラスト、テーマ企画、UI/UXなど、
+                            ビンゴパーティの制作に参加しませんか？
+                        </p>
+                    </div>
+                </div>
+
+                <div class="collab-cta">
+                    <a href="#" class="btn btn-accent btn-lg">お問い合わせはこちら</a>
+                    <p class="collab-note">※ 現在はメールでのお問い合わせを受け付けています</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== フッター ========== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-icon">🎯</span>
+                        <span class="logo-text">BINGO PARTY</span>
+                    </div>
+                    <p class="footer-tagline">日常が遊びに変わる。ビンゴで冒険しよう。</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-link-group">
+                        <h4 class="footer-link-title">ゲーム</h4>
+                        <ul>
+                            <li><a href="#">🚶 お散歩ビンゴ</a></li>
+                            <li><a href="#">🍺 呑み助ビンゴ</a></li>
+                            <li><a href="#">✈️ 旅ビンゴ <small>（準備中）</small></a></li>
+                            <li><a href="#">🍽️ グルメビンゴ <small>（準備中）</small></a></li>
+                            <li><a href="#">☕ カフェビンゴ <small>（準備中）</small></a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-link-group">
+                        <h4 class="footer-link-title">情報</h4>
+                        <ul>
+                            <li><a href="#concept">コンセプト</a></li>
+                            <li><a href="#collaborate">コラボ募集</a></li>
+                            <li><a href="#">利用規約</a></li>
+                            <li><a href="#">プライバシーポリシー</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2026 ビンゴパーティ / BINGO PARTY</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /* ===== モバイルメニュー ===== */
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('is-open');
+            menuToggle.classList.toggle('is-open', isOpen);
+            menuToggle.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
+        });
+
+        // メニュー内リンククリックで閉じる
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('is-open');
+                menuToggle.classList.remove('is-open');
+            });
+        });
+
+        /* ===== スクロールアニメーション ===== */
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -40px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, observerOptions);
+
+        // アニメーション対象を監視
+        document.querySelectorAll('.game-card, .feature-card, .collab-card, .flow-step').forEach(el => {
+            observer.observe(el);
+        });
+
+        /* ===== ヘッダースクロール効果 ===== */
+        let lastScroll = 0;
+        const header = document.querySelector('.site-header');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.scrollY;
+            if (currentScroll > 60) {
+                header.classList.add('is-scrolled');
+            } else {
+                header.classList.remove('is-scrolled');
+            }
+            lastScroll = currentScroll;
+        }, { passive: true });
+
+        /* ===== スムーズスクロール ===== */
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    const headerHeight = header.offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight - 16;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
