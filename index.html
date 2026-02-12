@@ -16,7 +16,7 @@
     <!-- ========== ヘッダー ========== -->
     <header class="site-header">
         <div class="header-inner">
-            <a href="/" class="logo">
+            <a href="./" class="logo">
                 <span class="logo-icon">🎯</span>
                 <span class="logo-text">BINGO PARTY</span>
             </a>
@@ -107,7 +107,7 @@
                         <p class="card-desc">いつもの散歩がワクワクする冒険に。街中の発見をビンゴで楽しもう。</p>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-card" style="--btn-color: #7eb89a;">遊ぶ</a>
+                        <a href="#" class="btn btn-card js-game-link" data-repo="osanpo-bingo" style="--btn-color: #7eb89a;">遊ぶ</a>
                     </div>
                 </article>
 
@@ -123,7 +123,7 @@
                         <p class="card-desc">飲み歩きがもっと楽しくなる。居酒屋巡りをゲーム感覚で楽しもう。</p>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-card" style="--btn-color: #d4a574;">遊ぶ</a>
+                        <a href="#" class="btn btn-card js-game-link" data-repo="nomisuke-bingo" style="--btn-color: #d4a574;">遊ぶ</a>
                     </div>
                 </article>
 
@@ -326,8 +326,8 @@
                     <div class="footer-link-group">
                         <h4 class="footer-link-title">ゲーム</h4>
                         <ul>
-                            <li><a href="#">🚶 お散歩ビンゴ</a></li>
-                            <li><a href="#">🍺 呑み助ビンゴ</a></li>
+                            <li><a href="#" class="js-game-link" data-repo="osanpo-bingo">🚶 お散歩ビンゴ</a></li>
+                            <li><a href="#" class="js-game-link" data-repo="nomisuke-bingo">🍺 呑み助ビンゴ</a></li>
                             <li><a href="#">✈️ 旅ビンゴ <small>（準備中）</small></a></li>
                             <li><a href="#">🍽️ グルメビンゴ <small>（準備中）</small></a></li>
                             <li><a href="#">☕ カフェビンゴ <small>（準備中）</small></a></li>
@@ -419,6 +419,25 @@
                 }
             });
         });
+
+        /* ===== 公開用リンク自動生成（GitHub Pages想定） =====
+           例: https://<username>.github.io/osanpo-bingo/
+               https://<username>.github.io/nomisuke-bingo/
+         */
+        (function () {
+            try {
+                // file:// で開いた場合は origin が "null" になるため、リンクはそのまま（#）にする
+                if (!window.location.origin || window.location.origin === 'null') return;
+                document.querySelectorAll('.js-game-link[data-repo]').forEach(function (a) {
+                    var repo = a.getAttribute('data-repo');
+                    if (!repo) return;
+                    a.setAttribute('href', window.location.origin.replace(/\/$/, '') + '/' + repo + '/');
+                });
+                // ロゴの "/" は GitHub Pages のサブパスで壊れやすいので相対に寄せる
+                var logo = document.querySelector('.logo');
+                if (logo) logo.setAttribute('href', './');
+            } catch (e) {}
+        })();
     </script>
 
 </body>
