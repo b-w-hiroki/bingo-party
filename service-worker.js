@@ -1,10 +1,11 @@
-const CACHE_NAME = 'bingo-platform-v1';
+const CACHE_NAME = 'bingo-platform-v2';
 const urlsToCache = [
   'index.html',
   'styles.css',
   'manifest.json',
   'icon-192.png',
-  'icon-512.png'
+  'icon-512.png',
+  'assets/hero-bingo-party.png'
 ];
 
 // インストール時にキャッシュを作成

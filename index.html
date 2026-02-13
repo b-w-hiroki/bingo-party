@@ -42,48 +42,37 @@
         </div>
     </header>
 
-    <!-- ========== ヒーローセクション ========== -->
+    <!-- ========== ヒーローセクション（上: 画像フル / 下: テキスト詰め） ========== -->
     <section class="hero">
-        <div class="hero-bg-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-            <div class="shape shape-4"></div>
-            <div class="shape shape-5"></div>
+        <div class="hero-visual" role="presentation" aria-hidden="true">
+            <div class="hero-bg-image" style="background-image: url('assets/hero-bingo-party.png');"></div>
+            <div class="hero-bg-overlay"></div>
         </div>
         <div class="hero-content">
-            <p class="hero-label">🎲 ビンゴゲームプラットフォーム</p>
-            <h1 class="hero-title">
-                <span class="hero-title-main">BINGO PARTY</span>
-                <span class="hero-title-jp">ビンゴパーティ</span>
-            </h1>
-            <p class="hero-subtitle">日常が遊びに変わる。<br>ビンゴで冒険しよう。</p>
+            <h1 class="visually-hidden">ビンゴパーティ BINGO PARTY</h1>
+            <p class="hero-label">ビンゴで、日常を冒険に。</p>
+            <p class="hero-subtitle">日常が遊びに変わる。ビンゴで冒険しよう。</p>
             <div class="hero-actions">
                 <a href="#games" class="btn btn-primary btn-lg">ゲームを見る</a>
-                <a href="#concept" class="btn btn-outline btn-lg">詳しく知る</a>
-            </div>
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <span class="stat-number">5</span>
-                    <span class="stat-label">ゲーム</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <span class="stat-number">2</span>
-                    <span class="stat-label">公開中</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <span class="stat-number">∞</span>
-                    <span class="stat-label">冒険</span>
-                </div>
+                <a href="#concept" class="btn btn-outline btn-lg">コンセプト</a>
             </div>
         </div>
-        <div class="hero-scroll-hint">
+        <div class="hero-scroll-hint" aria-hidden="true">
             <span>スクロール</span>
             <div class="scroll-arrow"></div>
         </div>
     </section>
+
+    <!-- ========== プラットフォームステータス（ゲーム一覧の導入） ========== -->
+    <div class="platform-stats-bar" aria-hidden="true">
+        <div class="container">
+            <div class="platform-stats-inner">
+                <span class="platform-stat"><strong>5</strong>ゲーム</span>
+                <span class="platform-stat"><strong>2</strong>公開中</span>
+                <span class="platform-stat">いろんな<strong>冒険</strong></span>
+            </div>
+        </div>
+    </div>
 
     <!-- ========== ゲーム一覧セクション ========== -->
     <section class="games-section" id="games">
@@ -305,6 +294,7 @@
                 </div>
 
                 <div class="collab-cta">
+                    <p class="collab-cta-lead">アイデア・企業・クリエイター、どれでも歓迎です。</p>
                     <a href="#" class="btn btn-accent btn-lg">お問い合わせはこちら</a>
                     <p class="collab-note">※ 現在はメールでのお問い合わせを受け付けています</p>
                 </div>
@@ -356,18 +346,28 @@
         const menuToggle = document.getElementById('menuToggle');
         const mobileMenu = document.getElementById('mobileMenu');
 
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('is-open');
+            menuToggle.classList.remove('is-open');
+            menuToggle.setAttribute('aria-label', 'メニューを開く');
+            document.body.style.overflow = '';
+        }
+
         menuToggle.addEventListener('click', () => {
             const isOpen = mobileMenu.classList.toggle('is-open');
             menuToggle.classList.toggle('is-open', isOpen);
             menuToggle.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
+            if (isOpen) document.body.style.overflow = 'hidden';
+            else document.body.style.overflow = '';
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('is-open')) closeMobileMenu();
         });
 
         // メニュー内リンククリックで閉じる
         mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('is-open');
-                menuToggle.classList.remove('is-open');
-            });
+            link.addEventListener('click', closeMobileMenu);
         });
 
         /* ===== スクロールアニメーション ===== */
@@ -390,17 +390,9 @@
         });
 
         /* ===== ヘッダースクロール効果 ===== */
-        let lastScroll = 0;
         const header = document.querySelector('.site-header');
-
         window.addEventListener('scroll', () => {
-            const currentScroll = window.scrollY;
-            if (currentScroll > 60) {
-                header.classList.add('is-scrolled');
-            } else {
-                header.classList.remove('is-scrolled');
-            }
-            lastScroll = currentScroll;
+            header.classList.toggle('is-scrolled', window.scrollY > 60);
         }, { passive: true });
 
         /* ===== スムーズスクロール ===== */
