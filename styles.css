@@ -664,8 +664,8 @@ button {
     display: flex;
     flex-direction: column;
     /* animation */
-    opacity: 0;
-    transform: translateY(24px);
+    opacity: 1;
+    transform: none;
 }
 
 .game-card.is-visible {
@@ -777,8 +777,8 @@ button {
     border: 1px solid transparent;
     transition: all var(--transition-normal);
     /* animation */
-    opacity: 0;
-    transform: translateY(24px);
+    opacity: 1;
+    transform: none;
 }
 
 .feature-card.is-visible {
@@ -848,8 +848,8 @@ button {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
     transition: all var(--transition-fast);
     /* animation */
-    opacity: 0;
-    transform: translateY(16px);
+    opacity: 1;
+    transform: none;
 }
 
 .flow-step.is-visible {
@@ -956,8 +956,8 @@ button {
     border: 1px solid var(--color-border-light);
     transition: all var(--transition-normal);
     /* animation */
-    opacity: 0;
-    transform: translateY(24px);
+    opacity: 1;
+    transform: none;
 }
 
 .collab-card.is-visible {

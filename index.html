@@ -67,7 +67,7 @@
     <div class="platform-stats-bar" aria-hidden="true">
         <div class="container">
             <div class="platform-stats-inner">
-                <span class="platform-stat"><strong>5</strong>ゲーム</span>
+                <span class="platform-stat"><strong>5</strong>テーマ</span>
                 <span class="platform-stat"><strong>2</strong>公開中</span>
                 <span class="platform-stat">いろんな<strong>冒険</strong></span>
             </div>
@@ -80,7 +80,7 @@
             <div class="section-header">
                 <span class="section-label">GAMES</span>
                 <h2 class="section-title">ゲーム一覧</h2>
-                <p class="section-desc">あなたにぴったりのビンゴを見つけよう</p>
+                <p class="section-desc">公開先のある2作品から選べます。準備中の3作品はまだ遊べません。</p>
             </div>
 
             <div class="games-grid">
@@ -97,7 +97,7 @@
                         <p class="card-desc">いつもの散歩がワクワクする冒険に。街中の発見をビンゴで楽しもう。</p>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-card js-game-link" data-repo="osanpo-bingo" style="--btn-color: #7eb89a;">遊ぶ</a>
+                        <a href="https://osanpobingo-battle.com/" class="btn btn-card" style="--btn-color: #7eb89a;">遊ぶ</a>
                     </div>
                 </article>
 
@@ -110,10 +110,10 @@
                     </div>
                     <div class="card-body">
                         <h3 class="card-title">呑み助ビンゴ</h3>
-                        <p class="card-desc">飲み歩きがもっと楽しくなる。居酒屋巡りをゲーム感覚で楽しもう。</p>
+                        <p class="card-desc">飲み物は自由。料理や会話の発見を、ビンゴで楽しもう。</p>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-card js-game-link" data-repo="nomisuke-bingo" style="--btn-color: #d4a574;">遊ぶ</a>
+                        <a href="https://b-w-hiroki.github.io/nomisuke-bingo/" class="btn btn-card" style="--btn-color: #d4a574;">遊ぶ</a>
                     </div>
                 </article>
 
@@ -122,7 +122,7 @@
                     <div class="card-accent"></div>
                     <div class="card-header">
                         <span class="card-emoji">✈️</span>
-                        <span class="card-badge badge-soon">Coming Soon</span>
+                        <span class="card-badge badge-soon">準備中</span>
                     </div>
                     <div class="card-body">
                         <h3 class="card-title">旅ビンゴ</h3>
@@ -138,7 +138,7 @@
                     <div class="card-accent"></div>
                     <div class="card-header">
                         <span class="card-emoji">🍽️</span>
-                        <span class="card-badge badge-soon">Coming Soon</span>
+                        <span class="card-badge badge-soon">準備中</span>
                     </div>
                     <div class="card-body">
                         <h3 class="card-title">グルメビンゴ</h3>
@@ -154,7 +154,7 @@
                     <div class="card-accent"></div>
                     <div class="card-header">
                         <span class="card-emoji">☕</span>
-                        <span class="card-badge badge-soon">Coming Soon</span>
+                        <span class="card-badge badge-soon">準備中</span>
                     </div>
                     <div class="card-body">
                         <h3 class="card-title">カフェビンゴ</h3>
@@ -317,8 +317,8 @@
                     <div class="footer-link-group">
                         <h4 class="footer-link-title">ゲーム</h4>
                         <ul>
-                            <li><a href="#" class="js-game-link" data-repo="osanpo-bingo">🚶 お散歩ビンゴ</a></li>
-                            <li><a href="#" class="js-game-link" data-repo="nomisuke-bingo">🍺 呑み助ビンゴ</a></li>
+                            <li><a href="https://osanpobingo-battle.com/">🚶 お散歩ビンゴ</a></li>
+                            <li><a href="https://b-w-hiroki.github.io/nomisuke-bingo/">🍺 呑み助ビンゴ</a></li>
                             <li><a href="#">✈️ 旅ビンゴ <small>（準備中）</small></a></li>
                             <li><a href="#">🍽️ グルメビンゴ <small>（準備中）</small></a></li>
                             <li><a href="#">☕ カフェビンゴ <small>（準備中）</small></a></li>
@@ -414,24 +414,6 @@
             });
         });
 
-        /* ===== 公開用リンク自動生成（GitHub Pages想定） =====
-           例: https://<username>.github.io/osanpo-bingo/
-               https://<username>.github.io/nomisuke-bingo/
-         */
-        (function () {
-            try {
-                // file:// で開いた場合は origin が "null" になるため、リンクはそのまま（#）にする
-                if (!window.location.origin || window.location.origin === 'null') return;
-                document.querySelectorAll('.js-game-link[data-repo]').forEach(function (a) {
-                    var repo = a.getAttribute('data-repo');
-                    if (!repo) return;
-                    a.setAttribute('href', window.location.origin.replace(/\/$/, '') + '/' + repo + '/');
-                });
-                // ロゴの "/" は GitHub Pages のサブパスで壊れやすいので相対に寄せる
-                var logo = document.querySelector('.logo');
-                if (logo) logo.setAttribute('href', './');
-            } catch (e) {}
-        })();
     </script>
 
     <!-- Service Worker登録 -->
