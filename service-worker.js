@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bingo-platform-v3';
+const CACHE_NAME = 'bingo-platform-v4';
 const urlsToCache = [
   'index.html',
   'styles.css',
