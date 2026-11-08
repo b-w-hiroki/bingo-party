@@ -26,14 +26,14 @@
                 <a href="#concept">コンセプト</a>
                 <a href="#collaborate">コラボ募集</a>
             </nav>
-            <button class="menu-toggle" aria-label="メニューを開く" id="menuToggle">
+            <button class="menu-toggle" aria-label="メニューを開く" id="menuToggle" aria-controls="mobileMenu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
         </div>
         <!-- モバイルメニュー -->
-        <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu" id="mobileMenu" inert>
             <nav class="mobile-nav">
                 <a href="#games">ゲーム一覧</a>
                 <a href="#concept">コンセプト</a>
@@ -346,28 +346,56 @@
         const menuToggle = document.getElementById('menuToggle');
         const mobileMenu = document.getElementById('mobileMenu');
 
-        function closeMobileMenu() {
+        const menuLinks = [...mobileMenu.querySelectorAll('a')];
+        const desktopMenu = window.matchMedia('(min-width: 768px)');
+        let previousOverflow = '';
+
+        function closeMobileMenu(restoreFocus = false) {
+            if (!mobileMenu.classList.contains('is-open')) return;
             mobileMenu.classList.remove('is-open');
+            mobileMenu.inert = true;
             menuToggle.classList.remove('is-open');
+            menuToggle.setAttribute('aria-expanded', 'false');
             menuToggle.setAttribute('aria-label', 'メニューを開く');
-            document.body.style.overflow = '';
+            document.body.style.overflow = previousOverflow;
+            if (restoreFocus) menuToggle.focus();
         }
 
         menuToggle.addEventListener('click', () => {
-            const isOpen = mobileMenu.classList.toggle('is-open');
-            menuToggle.classList.toggle('is-open', isOpen);
-            menuToggle.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
-            if (isOpen) document.body.style.overflow = 'hidden';
-            else document.body.style.overflow = '';
+            if (mobileMenu.classList.contains('is-open')) {
+                closeMobileMenu(true);
+                return;
+            }
+            previousOverflow = document.body.style.overflow;
+            mobileMenu.inert = false;
+            mobileMenu.classList.add('is-open');
+            menuToggle.classList.add('is-open');
+            menuToggle.setAttribute('aria-expanded', 'true');
+            menuToggle.setAttribute('aria-label', 'メニューを閉じる');
+            document.body.style.overflow = 'hidden';
+            menuLinks[0].focus();
         });
 
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && mobileMenu.classList.contains('is-open')) closeMobileMenu();
+            if (!mobileMenu.classList.contains('is-open')) return;
+            if (e.key === 'Escape') closeMobileMenu(true);
+            if (e.key === 'Tab') {
+                const controls = [menuToggle, ...menuLinks];
+                const current = controls.indexOf(document.activeElement);
+                const next = (current + (e.shiftKey ? -1 : 1) + controls.length) % controls.length;
+                e.preventDefault();
+                controls[next].focus();
+            }
         });
 
-        // メニュー内リンククリックで閉じる
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', closeMobileMenu);
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => closeMobileMenu(true));
+        });
+        desktopMenu.addEventListener('change', (event) => {
+            if (!event.matches) return;
+            const hadMenuFocus = mobileMenu.contains(document.activeElement) || document.activeElement === menuToggle;
+            closeMobileMenu();
+            if (hadMenuFocus) document.querySelector('.header-nav a').focus();
         });
 
         /* ===== スクロールアニメーション ===== */

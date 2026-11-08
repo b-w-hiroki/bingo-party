@@ -312,8 +312,8 @@ button {
     flex-direction: column;
     justify-content: center;
     gap: 5px;
-    width: 36px;
-    height: 36px;
+    width: 44px;
+    height: 44px;
     z-index: 101;
 }
 
@@ -351,6 +351,8 @@ button {
 
 /* ===== Mobile Menu ===== */
 .mobile-menu {
+    height: 100vh;
+    height: 100dvh;
     position: fixed;
     top: 0;
     left: 0;
@@ -1157,3 +1159,11 @@ button {
         background: #fff;
     }
 }
+
+/* The overlay keeps its existing artwork/colors; keyboard focus stays visible. */
+.menu-toggle:focus-visible, .mobile-nav a:focus-visible {
+    outline: 3px solid #FFFFFF;
+    outline-offset: 5px;
+}
+.site-header.is-scrolled .menu-toggle.is-open span { background: #FFFFFF; }
+.site-header:has(.mobile-menu.is-open) .logo-text { color: rgba(255, 255, 255, 0.95); }
